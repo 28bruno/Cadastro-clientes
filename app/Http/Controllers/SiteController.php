@@ -24,5 +24,13 @@ class SiteController extends Controller
             'cliente' => $clientes
         ]);
     }
+<<<<<<< HEAD
     
+=======
+
+    public function create()
+    {
+        return view('create');
+    }
+>>>>>>> be4e695ca7e20a9e7001984cd7514c716c385f60
 }
