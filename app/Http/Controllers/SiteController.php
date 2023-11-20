@@ -20,7 +20,7 @@ class SiteController extends Controller
     {
         $clientes = Clientes::find( $id );
 
-        return view( 'show', [
+        return view( 'clientes.show', [
             'cliente' => $clientes
         ] );
     }

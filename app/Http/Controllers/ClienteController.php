@@ -20,4 +20,39 @@ class ClienteController extends Controller
 
         return redirect('/');
     }
+    
+    public function edit(int $id)
+    {
+        $cliente = Clientes::find($id);
+
+        return view('clientes.edit', [
+            'clientes' => $cliente
+        ]);
+    }
+
+    public function update(int $id, Request $request)
+    {
+        $cliente = Clientes::find($id);
+
+        $cliente->update([
+            'codBomControle' => $request->codBomControle,
+            'cnpjCpf' => $request->cnpjCpf, 
+            'razaoSocial' => $request->razaoSocial, 
+            'nomeFantasia' => $request->nomeFantasia, 
+            'nomeResponsavel' => $request->nomeResponsavel, 
+            'telefone' => $request->telefone, 
+            'email' => $request->email
+        ]);
+
+        return redirect('/');
+    }
+
+    public function delete(int $id)
+    {
+        $cliente = Clientes::find($id);
+
+        $cliente->delete();
+
+        return redirect('/');
+    }
 }

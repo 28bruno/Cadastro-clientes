@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get( '/', [ SiteController::class, 'home' ] )->name( 'home' );
-Route::get( '/{id}', [ SiteController::class, 'show' ] )->name( 'clientes.show' );
-Route::get( '/clientes/create', [ ClienteController::class, 'create' ] )->name( 'clientes.create' );
 
-Route::post( '/clientes', [ ClienteController::class, 'store' ] )->name( 'clientes.store' );
+Route::get('/{id}', [ SiteController::class, 'show' ] )->name( 'clientes.show' );
+Route::get('/c/create', [ ClienteController::class, 'create' ] )->name( 'clientes.create' );
+Route::post('/c', [ ClienteController::class, 'store' ] )->name( 'clientes.store' );
+Route::get('/c/{id}', [ ClienteController::class, 'edit' ] )->name( 'clientes.edit' );
+Route::put('/c/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+Route::delete('/c/{id}', [ClienteController::class, 'delete'])->name('clientes.delete');
